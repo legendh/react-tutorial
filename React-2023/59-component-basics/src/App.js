@@ -1,22 +1,28 @@
-import keyConceptsImage from './assets/images/key-concepts.png';
 import componentsImage from './assets/images/components.png';
 import stateImage from './assets/images/state.png';
 import eventsImage from './assets/images/events.png';
+import Header from './components/Header/Header';
+import Concepts from './components/Concept/Concepts';
+
+import Card from './components/UI/Card';
 
 const concepts = [
-  {
+  { 
+    key:'c01',
     title: 'Components',
     image: componentsImage,
     description:
       'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. Components can receive data via props, and they can render dynamic output using JSX.',
   },
   {
+    key:'s01',
     title: 'State',
     image: stateImage,
     description:
       'State is data that may change over time. As it changes, the UI should be updated to reflect the updated data. Each component can maintain its own state and multiple components can share state.',
   },
   {
+    key:'e01',
     title: 'Events',
     image: eventsImage,
     description:
@@ -24,22 +30,12 @@ const concepts = [
   },
 ];
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <header>
-        <img src={keyConceptsImage} alt="Medal badge with a star" />
-        <h1>Key React Concepts</h1>
-        <p>Selected key React concepts you should know about</p>
-      </header>
-      <ul id="concepts">
-        <li className="concept">
-          <img src="TODO: IMAGE" alt="TODO: TITLE" />
-          <h2>TODO: TITLE</h2>
-          <p>TODO: DESCRIPTION</p>
-        </li>
-      </ul>
-    </div>
+    <Card>
+      <Header />
+      <Concepts items={concepts} />    
+    </Card>
   );
 }
 
