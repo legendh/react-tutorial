@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./CalculatorForm.css";
+import styles from "./CalculatorForm.module.css";
 
 const initialUserInput = {
   "current-savings": "",
@@ -64,13 +64,13 @@ const CalculatorForm = (props) => {
   };
 
   return (
-    <form className="form">
-      <div className="input-group">
+    <form className={styles.form}>
+      <div className={styles["input-group"]}>
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input
-            className={`form-input ${
-              isInvalid["current-savings"] && "invalid"
+            className={`${styles["form-input"]} ${
+              isInvalid["current-savings"] && styles.invalid
             }`}
             type="number"
             id="current-savings"
@@ -82,8 +82,8 @@ const CalculatorForm = (props) => {
         <p>
           <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
           <input
-            className={`form-input ${
-              isInvalid["yearly-contribution"] && "invalid"
+            className={`${styles["form-input"]} ${
+              isInvalid["yearly-contribution"] && styles.invalid
             }`}
             type="number"
             id="yearly-contribution"
@@ -95,14 +95,14 @@ const CalculatorForm = (props) => {
           </span>
         </p>
       </div>
-      <div className="input-group">
+      <div className={styles["input-group"]}>
         <p>
           <label htmlFor="expected-return">
             Expected Interest (%, per year)
           </label>
           <input
-            className={`form-input ${
-              isInvalid["expected-return"] && "invalid"
+            className={`${styles["form-input"]} ${
+              isInvalid["expected-return"] && styles.invalid
             }`}
             type="number"
             id="expected-return"
@@ -114,7 +114,7 @@ const CalculatorForm = (props) => {
         <p>
           <label htmlFor="duration">Investment Duration (years)</label>
           <input
-            className={`form-input ${isInvalid["duration"] && "invalid"}`}
+            className={`${styles["form-input"]} ${isInvalid["duration"] && styles.invalid}`}
             type="number"
             id="duration"
             value={userInput["duration"]}
@@ -123,11 +123,11 @@ const CalculatorForm = (props) => {
           <span>{isInvalid["duration"] && "Please enter a number"}</span>
         </p>
       </div>
-      <p className="actions">
-        <button type="reset" onClick={onReset} className="buttonAlt">
+      <p className={styles.actions}>
+        <button type="reset" onClick={onReset} className={styles.buttonAlt}>
           Reset
         </button>
-        <button type="submit" onClick={onSubmitHandler} className="button">
+        <button type="submit" onClick={onSubmitHandler} className={styles.button}>
           Calculate
         </button>
       </p>

@@ -1,7 +1,7 @@
-import './ResultMessage.css';
+import styles from './ResultMessage.module.css';
 
 const ResultMessage = () =>{
-    return <p className="message">No data is available </p>
+    return <p className={styles.message}>No data is available </p>
 }
 
 export default ResultMessage;

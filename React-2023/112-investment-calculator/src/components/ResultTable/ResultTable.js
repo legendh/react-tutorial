@@ -1,3 +1,5 @@
+import styles from './ResultTable.module.css';
+
 const formatter = new Intl.NumberFormat('en-US',{
   style:'currency',
   currency: 'USD',
@@ -8,7 +10,7 @@ const formatter = new Intl.NumberFormat('en-US',{
 const ResultTable = (props) => {
   const data = props.data.yearlyData;
   return (
-    <table className="result">
+    <table className={styles.result}>
       <thead>
         <tr>
           <th>Year</th>

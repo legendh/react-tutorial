@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CalculatorForm from "./components/CalculatorForm/CalculatorForm";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import ResultTable from "./components/ResultTable/ResultTable";
 import ResultMessage from "./components/ResultMessage/ResultMessage";
 
