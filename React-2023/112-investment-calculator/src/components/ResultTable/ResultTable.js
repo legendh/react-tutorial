@@ -1,4 +1,5 @@
-const ResultTable = () => {
+const ResultTable = (props) => {
+  const data = props.data.yearlyData;
   return (
     <table className="result">
       <thead>
@@ -11,13 +12,15 @@ const ResultTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>YEAR NUMBER</td>
-          <td>TOTAL SAVINGS END OF YEAR</td>
-          <td>INTEREST GAINED IN YEAR</td>
-          <td>TOTAL INTEREST GAINED</td>
-          <td>TOTAL INVESTED CAPITAL</td>
-        </tr>
+        {data.map((item) => (
+          <tr>
+            <td>{item.year}</td>
+            <td>${item.savingsEndOfYear.toFixed(2)}</td>
+            <td>${item.yearlyInterest.toFixed(2)}</td>
+            <td>${item.totalInterest.toFixed(2)}</td>
+            <td>${item.totalInvested.toFixed(2)}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

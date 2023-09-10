@@ -1,0 +1,13 @@
+.form-input.invalid {
+    border-color: #ff0000;
+    background-color: #ff8080;
+}
+
+.input-group p{
+    width: 50%;
+}
+
+.input-group p span{ 
+    font-weight: bolder;
+    font-size: 12px;
+}
