@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import "./CalculatorForm.css";
 
+const initialUserInput = {
+  "current-savings": "",
+  "yearly-contribution": "",
+  "expected-return": "",
+  duration: "",
+};
 const CalculatorForm = (props) => {
-  const initialUserInput = {
-    "current-savings": "",
-    "yearly-contribution": "",
-    "expected-return": "",
-    duration: "",
-  };
   const [userInput, setUserInput] = useState(initialUserInput);
   const [isInvalid, setIsInvalid] = useState(initialUserInput);
 

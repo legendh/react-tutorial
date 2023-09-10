@@ -9,9 +9,6 @@ function App() {
   const [isResultVisible, setIsResultVisible] = useState(false);
 
   const calculateHandler = (userInput) => {
-    // Should be triggered when form is submitted
-    // You might not directly want to bind it to the submit event on the form though...
-
     const yearlyData = []; // per-year results
 
     let currentSavings = +userInput["current-savings"]; // feel free to change the shape of this input object!
@@ -21,15 +18,14 @@ function App() {
 
     let totalInterest = 0;
     let totalInvested = 0;
-    // The below code calculates yearly results (total savings, interest etc)
+    
     for (let i = 0; i < duration; i++) {
       const yearlyInterest = currentSavings * expectedReturn;
       currentSavings += yearlyInterest + yearlyContribution;
       totalInterest += yearlyInterest;
       totalInvested = currentSavings - totalInterest;
 
-      yearlyData.push({
-        // feel free to change the shape of the data pushed to the array!
+      yearlyData.push({        
         year: i + 1,
         yearlyInterest: yearlyInterest,
         savingsEndOfYear: currentSavings,
@@ -39,7 +35,6 @@ function App() {
       });
     }
 
-    // do something with yearlyData ...
     setCalculatedYearlyData((prevData) => ({ ...prevData, yearlyData }));
     setIsResultVisible(true);
   };
@@ -55,9 +50,6 @@ function App() {
       <CalculatorForm onCalculate={calculateHandler} onReset={resetTable} />
       {isResultVisible && <ResultTable data={calculatedYearlyData} />}
       {!isResultVisible && <ResultMessage />}
-
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
     </div>
   );
 }
