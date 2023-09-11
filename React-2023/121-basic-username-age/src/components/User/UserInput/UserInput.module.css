@@ -1,0 +1,26 @@
+.user-input-main {
+  margin: 10px 0;
+}
+.user-input-main__title {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.user-input-main__input {
+  width: 100%;  
+}
+
+/* Start: Hide Spinner */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+/* End: Hide Spinner  */
