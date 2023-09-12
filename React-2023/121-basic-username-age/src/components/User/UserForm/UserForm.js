@@ -7,6 +7,7 @@ import UserInput from "../UserInput/UserInput";
 const initialUserInputs = {
   userName: "",
   userAge: "",
+  userId: "",
 };
 const UserForm = (props) => {
   const [userInput, setUserInput] = useState(initialUserInputs);
@@ -17,21 +18,23 @@ const UserForm = (props) => {
       setUserInput((prevUserInputs) => ({
         ...prevUserInputs,
         userName: value,
+        userId: Math.random().toString(),
       }));
     id === "age" &&
       setUserInput((prevUserInputs) => ({
         ...prevUserInputs,
         userAge: value,
+        userId: Math.random().toString(),
       }));
   };
 
   const onClickHandler = () => {
-    if (userInput.userName.trim().length === 0) {      
-      props.onError('Username\'s input can not be empty!')
+    if (userInput.userName.trim().length === 0) {
+      props.onError("Username's input can not be empty!");
       return false;
     }
     if (userInput.userAge <= 0) {
-      props.onError('Age\'s input should be greater than 0');
+      props.onError("Age's input should be greater than 0");
       return false;
     }
 
@@ -39,10 +42,9 @@ const UserForm = (props) => {
     resetForm();
   };
 
-  const resetForm = () =>{
+  const resetForm = () => {
     setUserInput(initialUserInputs);
-  }
-
+  };
 
   const preventNanNumber = (event) => {
     ["e", "E", "+", "-"].includes(event.key) && event.preventDefault();
