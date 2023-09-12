@@ -4,15 +4,15 @@ import UserForm from "./components/User/UserForm/UserForm";
 import UserList from "./components/User/UserList/UserList";
 import Modal from "./components/Modal/Modal";
 
-const initialUserListData = [];
+const initialUserList = [];
 let ErrorMessage = "";
 
 function App() {
-  const [userListData, setUserListData] = useState(initialUserListData);
+  const [userList, setUserList] = useState(initialUserList);
   const [modalVisibility, setModalVisibility] = useState(false);
 
   const AddUser = (currentUser) => {
-    setUserListData((prevUserList) => [...prevUserList, currentUser]);
+    setUserList((prevUserList) => [...prevUserList, currentUser]);
   };
 
   const getErrorMessage = (message) => {
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="root">
       <UserForm onAddUser={AddUser} onError={getErrorMessage} />
-      <UserList data={userListData} />
+      <UserList data={userList} />
       {modalVisibility && (
         <Modal
           message={ErrorMessage}
