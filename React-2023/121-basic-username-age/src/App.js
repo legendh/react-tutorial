@@ -5,7 +5,6 @@ import UserList from "./components/User/UserList/UserList";
 import Modal from "./components/Modal/Modal";
 
 const initialUserListData = [];
-let ErrorTitle = "";
 let ErrorMessage = "";
 
 function App() {
@@ -13,25 +12,12 @@ function App() {
   const [modalVisibility, setModalVisibility] = useState(false);
 
   const AddUser = (currentUser) => {
-    console.log("AddUser");
-    console.log(typeof currentUser.userAge);
+    setUserListData((prevUserList) => [...prevUserList, currentUser]);
+  };
 
-    let isValid = true;
-    if (currentUser.userName.trim().length === 0) {
-      ErrorTitle = "Invalid Input";
-      ErrorMessage = "Username's input can not be empty!";
-      setModalVisibility(true);
-      isValid = false;
-    }
-    if (currentUser.userAge <= 0) {
-      ErrorTitle = "Invalid Input";
-      ErrorMessage = "Age's input should be greater than 0";
-      setModalVisibility(true);
-      isValid = false;
-    }
-
-    isValid &&
-      setUserListData((prevUserList) => [...prevUserList, currentUser]);
+  const getErrorMessage = (message) => {
+    ErrorMessage = message;
+    setModalVisibility(true);
   };
 
   const modalButton = () => {
@@ -40,12 +26,12 @@ function App() {
 
   return (
     <div className="root">
-      <UserForm onAddUser={AddUser} />
+      <UserForm onAddUser={AddUser} onError={getErrorMessage} />
       <UserList data={userListData} />
       {modalVisibility && (
         <Modal
           message={ErrorMessage}
-          title={ErrorTitle}
+          title="Invalid Input"
           onClick={modalButton}
         />
       )}

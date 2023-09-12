@@ -26,8 +26,23 @@ const UserForm = (props) => {
   };
 
   const onClickHandler = () => {
+    if (userInput.userName.trim().length === 0) {      
+      props.onError('Username\'s input can not be empty!')
+      return false;
+    }
+    if (userInput.userAge <= 0) {
+      props.onError('Age\'s input should be greater than 0');
+      return false;
+    }
+
     props.onAddUser(userInput);
+    resetForm();
   };
+
+  const resetForm = () =>{
+    setUserInput(initialUserInputs);
+  }
+
 
   const preventNanNumber = (event) => {
     ["e", "E", "+", "-"].includes(event.key) && event.preventDefault();
