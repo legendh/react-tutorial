@@ -30,11 +30,11 @@ const UserForm = (props) => {
 
   const onClickHandler = () => {
     if (userInput.userName.trim().length === 0) {
-      props.onError("Username's input can not be empty!");
+      props.onError("Invalid username", "Username's input can not be empty!");
       return false;
     }
     if (userInput.userAge <= 0) {
-      props.onError("Age's input should be greater than 0");
+      props.onError("Invalid age", "Age's input should be greater than 0");
       return false;
     }
 

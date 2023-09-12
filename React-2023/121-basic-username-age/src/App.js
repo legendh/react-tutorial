@@ -5,18 +5,22 @@ import UserList from "./components/User/UserList/UserList";
 import Modal from "./components/Modal/Modal";
 
 const initialUserList = [];
-let ErrorMessage = "";
+const initialModalMessage = {
+  title:'',
+  message:''
+}
 
 function App() {
   const [userList, setUserList] = useState(initialUserList);
   const [modalVisibility, setModalVisibility] = useState(false);
+  const [modalMessage, setModalMessage] = useState(initialModalMessage)
 
   const AddUser = (currentUser) => {
     setUserList((prevUserList) => [...prevUserList, currentUser]);
   };
 
-  const getErrorMessage = (message) => {
-    ErrorMessage = message;
+  const getErrorMessage = (title, message) => {    
+    setModalMessage((prevMessage)=>({...prevMessage, title: title, message: message}))
     setModalVisibility(true);
   };
 
@@ -30,8 +34,8 @@ function App() {
       <UserList data={userList} />
       {modalVisibility && (
         <Modal
-          message={ErrorMessage}
-          title="Invalid Input"
+          message={modalMessage.message}
+          title={modalMessage.title}
           onClick={modalButton}
         />
       )}
