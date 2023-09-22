@@ -5,10 +5,10 @@ const Input = (props) => {
   const inputClass = props.className;
   return (
     <div className={inputClass}>
-      <label htmlFor={props.name}>{props.children}</label>
+      <label htmlFor={props.id}>{props.children}</label>
       <input
         type={props.type}
-        id={props.name}
+        id={props.id}
         value={props.value}
         onChange={props.onChange}
         onBlur={props.OnBlur}

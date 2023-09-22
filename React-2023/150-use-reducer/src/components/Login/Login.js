@@ -99,7 +99,7 @@ const Login = (props) => {
             emailState.isValid === false ? classes.invalid : ""
           }`}
           type="email"
-          name="email"
+          id="email"
           value={emailState.val}
           onChange={emailChangeHandler}
           onBlur={validateEmailHandler}
@@ -111,7 +111,7 @@ const Login = (props) => {
             passwordState.isValid === false ? classes.invalid : ""
           }`}
           type="password"
-          name="password"
+          id="password"
           value={passwordState.val}
           onChange={passwordChangeHandler}
           onBlur={validatePasswordHandler}
